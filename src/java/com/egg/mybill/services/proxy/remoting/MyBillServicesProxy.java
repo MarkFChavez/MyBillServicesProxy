@@ -4,7 +4,7 @@
  */
 package com.egg.mybill.services.proxy.remoting;
 
-import com.egg.mybill.services.proxy.MyBillResponse;
+import com.egg.mybill.services.proxy.ServiceResponse;
 
 /**
  *
@@ -12,8 +12,7 @@ import com.egg.mybill.services.proxy.MyBillResponse;
  */
 public interface MyBillServicesProxy {
     
-    public MyBillResponse sayHello(String message);
-    public MyBillResponse getBillingList(String msisdn, String fromDate, String toDate);
-    public MyBillResponse retrieveBillingStatement(String msisdn, String fromDate, String toDate);
+    public ServiceResponse sayHello(String message);
+    public ServiceResponse getBillingList(String msisdn, String fromDate, String toDate);
     
 }

@@ -30,7 +30,7 @@
     </target>
     <target name="wsimport-client-BillingProxyService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/BillingProxyService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BillingProxyService" destdir="${build.generated.dir}/jax-wsCache/BillingProxyService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BillingProxyService/wsdl/BillingProxyService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="file:/C:/Users/Mark%20Chavez/Desktop/BillingProxyService.wsdl" xnocompile="true" xendorsed="true" package="com.egg.mybill.services.proxy.wsdl" target="2.1">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BillingProxyService" destdir="${build.generated.dir}/jax-wsCache/BillingProxyService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BillingProxyService/wsdl/BillingProxyService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://10.225.10.4:8211/billing?wsdl" xnocompile="true" xendorsed="true" package="com.egg.mybill.services.proxy.wsdl" target="2.1">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BillingProxyService/wsdl/BillingProxyService.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/BillingProxyService"/>
         </wsimport>

@@ -19,7 +19,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/C:/Users/Mark%20Chavez/Desktop/BillingProxyService.wsdl</wsimport-option-value>
+          <wsimport-option-value>http://10.225.10.4:8211/billing?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
