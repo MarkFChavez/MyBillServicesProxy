@@ -12,7 +12,11 @@ import com.egg.mybill.services.proxy.ServiceResponse;
  */
 public interface MyBillServicesProxy {
     
-    public ServiceResponse sayHello(String message);
-    public ServiceResponse getBillingList(String msisdn, String fromDate, String toDate);
+    public ServiceResponse testCall(String msisdn);
+    public ServiceResponse dummyGetBillingList();
+    public ServiceResponse getBillingList(String msisdn, int pageSize, int pageNumber, Integer numRows);
+    public ServiceResponse retrieveBillingStatement(String msisdn, String billId, boolean isConvertible, 
+            boolean isFullBill, boolean isImmediate, Integer pageSize, Integer pageNumber, Integer numberOfRows, 
+            String absolutePath, String fileName);
     
 }

@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="BillingService" targetNamespace="http://www.globe.com/warcraft/wsdl/billing/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.globe.com/warcraft/wsdl/billing/" xmlns:WL5G3N2="http://www.globe.com/warcraft/wsdl/header/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <WL5G3N0:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.globe.com/warcraft/wsdl/header/" xmlns="http://www.globe.com/warcraft/wsdl/header/" xmlns:ns1="http://www.globe.com/warcraft/wsdl/header/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.globe.com/warcraft/wsdl/billing/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType final="extension restriction" name="WarcraftHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="EsbMessageID" nillable="true" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EsbRequestDateTime" nillable="true" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="EsbResponseDateTime" nillable="true" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="EsbIMLNumber" nillable="true" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EsbOperationName" nillable="true" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="WarcraftHeader" nillable="true" type="WarcraftHeader"/>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.globe.com/warcraft/wsdl/billing/" xmlns:ns1="http://www.globe.com/warcraft/wsdl/header/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.globe.com/warcraft/wsdl/billing/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="CreateCreditForLoyaltyRebateResponse" type="tns:CreateCreditForLoyaltyRebateResponse"/>
+      <xsd:element name="GetAccountBalanceByMsisdnResponse" type="tns:GetAccountBalanceByMsisdnResponse"/>
+      <xsd:element name="GetAllSubscribersPerCustomerResponse" type="tns:GetAllSubscribersPerCustomerResponse"/>
+      <xsd:element name="GetBillCycleDetailsByMsisdnResponse" type="tns:GetBillCycleDetailsByMsisdnResponse"/>
+      <xsd:element name="GetBillingListResponse" type="tns:GetBillingListResponse"/>
+      <xsd:element name="GetLastPaymentByMsisdnResponse" type="tns:GetLastPaymentByMsisdnResponse"/>
+      <xsd:element name="GetOutstandingBalanceByMsisdnResponse" type="tns:GetOutstandingBalanceByMsisdnResponse"/>
+      <xsd:element name="GetPaymentChannelHeaderByMsisdnResponse" type="tns:GetPaymentChannelHeaderByMsisdnResponse"/>
+      <xsd:element name="GetPerformanceIndicatorsByMsisdnResponse" type="tns:GetPerformanceIndicatorsByMsisdnResponse"/>
+      <xsd:element name="GetSpendingLimitByMsisdnResponse" type="tns:GetSpendingLimitByMsisdnResponse"/>
+      <xsd:element name="GetSubscriberByAccountIDResponse" type="tns:GetSubscriberByAccountIDResponse"/>
+      <xsd:element name="GetSubscriberByMsisdnResponse" type="tns:GetSubscriberByMsisdnResponse"/>
+      <xsd:element name="GetSubscriberDistributionByMsisdnResponse" type="tns:GetSubscriberDistributionByMsisdnResponse"/>
+      <xsd:element name="GetUnbilledChargeByMsisdnResponse" type="tns:GetUnbilledChargeByMsisdnResponse"/>
+      <xsd:element name="RetrieveBillingStatementResponse" type="tns:RetrieveBillingStatementResponse"/>
+      <xsd:element name="SendIVRReconnectionRequestResponse" type="tns:SendIVRReconnectionRequestResponse"/>
+      <xsd:complexType name="getAccountBalanceByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAccountBalanceByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetAccountBalanceByMsisdn" type="tns:GetAccountBalanceByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAccountBalanceByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AccountBalanceDt" type="tns:AccountBalanceDt"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountBalanceDt">
+        <xsd:sequence>
+          <xsd:element name="ArBalance" type="xs:double"/>
+          <xsd:element name="UnappliedAmount" type="xs:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberByAccountID">
+        <xsd:sequence>
+          <xsd:element name="AccountNo" type="xs:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberByAccountIDResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetSubscriberByAccountIDResult" type="tns:GetSubscriberByAccountIDResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberByAccountIDResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AccountResultsScreenDt" type="tns:AccountResultsScreenDt"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountResultsScreenDt">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AccountDetailsScreenDt" type="tns:AccountDetailsScreenDt"/>
+          <xsd:element name="DummyField" type="xs:short"/>
+          <xsd:element minOccurs="0" name="LockInfo" type="tns:LockInfoDt"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountDetailsScreenDt">
+        <xsd:sequence>
+          <xsd:element name="AccountId" type="xs:long"/>
+          <xsd:element minOccurs="0" name="AccountStatus" type="xs:string"/>
+          <xsd:element name="AcctBalPolicy" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="AddressLine1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine3" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine4" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ArAccountSubType" type="xs:string"/>
+          <xsd:element name="ArAccountType" type="xs:byte"/>
+          <xsd:element name="ArBalance" type="xs:double"/>
+          <xsd:element minOccurs="0" name="BankAccountNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="BankCode" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CcExpiryDate" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CmAccountNumber" type="xs:string"/>
+          <xsd:element name="CollectionIndicator" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="CreditCardNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CreditCardType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="Currency" type="xs:string"/>
+          <xsd:element name="CustomerNo" type="xs:int"/>
+          <xsd:element minOccurs="0" name="DocumentType" type="xs:string"/>
+          <xsd:element name="DummyField" type="xs:short"/>
+          <xsd:element minOccurs="0" name="NameLine1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="NameLine2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PaymentMethod" type="xs:string"/>
+          <xsd:element name="WriteOffStatus" type="xs:byte"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LockInfoDt">
+        <xsd:sequence>
+          <xsd:element name="AccountTimestamp" type="xs:long"/>
+          <xsd:element name="DummyField" type="xs:short"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAllSubscribersPerCustomer">
+        <xsd:sequence>
+          <xsd:element name="CustomerNo">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:int">
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAllSubscribersPerCustomerResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetAllSubscribersPerCustomerResult" type="tns:GetAllSubscribersPerCustomerResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAllSubscribersPerCustomerResult">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="SubscriberInfo" type="tns:SubscriberInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SubscriberInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SubscriberGeneralInfo" type="tns:SubscriberGeneralInfo"/>
+          <xsd:element minOccurs="0" name="SubscriberStatusInfo" type="tns:SubscriberStatusInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelHeader" type="tns:PayChannelHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SubscriberGeneralInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="EffectiveDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="DealerCode" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ActWaiveRsnCd" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PrimResourceTp" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PrimResourceVal" type="xs:string"/>
+          <xsd:element minOccurs="0" name="SubPassword" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CreditClass" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CalculatePaymentCategory" type="xs:string"/>
+          <xsd:element minOccurs="0" name="Language" type="xs:string"/>
+          <xsd:element name="LinkPrevSubNo" type="xs:int"/>
+          <xsd:element name="LinkNextSubNo" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SubscriberStatusInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SubStatus" type="xs:string"/>
+          <xsd:element minOccurs="0" name="SubStatusDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="SubStsIssueDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="SubStsLastAct" type="xs:string"/>
+          <xsd:element minOccurs="0" name="SubStsRsnCd" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BillingArrangementIdInfo" type="tns:BillingArrangementIdInfo"/>
+          <xsd:element minOccurs="0" name="CustomerIdInfo" type="tns:Csm3gCustomerIdInfo"/>
+          <xsd:element minOccurs="0" name="ExternalIdInfo" type="tns:ExternalIdInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelBusinessEntityIdInfo" type="tns:BusinessEntityIdInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelDescriptionInfo" type="tns:PayChannelDescriptionInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelGeneralInfo" type="tns:PayChannelGeneralInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelIdInfo" type="tns:PayChannelIdInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelNumberInfo" type="tns:PayChannelNumberInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelPaymentCategoryInfo" type="tns:PayChannelPaymentCategoryInfo"/>
+          <xsd:element minOccurs="0" name="PayChannelPaymentMethodInfo" type="tns:PayChannelPaymentCategoryInfoWrapper.java"/>
+          <xsd:element minOccurs="0" name="PayChannelStatusInfo" type="tns:PayChannelStatusInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BillingArrangementIdInfo">
+        <xsd:sequence>
+          <xsd:element name="BillingArrangementId" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Csm3gCustomerIdInfo">
+        <xsd:sequence>
+          <xsd:element name="CustomerNo" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ExternalIdInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ExternalId" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessEntityIdInfo">
+        <xsd:sequence>
+          <xsd:element name="BusinessEntityId" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelDescriptionInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelGeneralInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" type="xs:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelIdInfo">
+        <xsd:sequence>
+          <xsd:element name="PayChannelId" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelNumberInfo">
+        <xsd:sequence>
+          <xsd:element name="AccountNo" type="xs:int"/>
+          <xsd:element name="BillingArrangementNo" type="xs:int"/>
+          <xsd:element name="PayChannelNo" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelPaymentCategoryInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PaymentCategory" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelPaymentCategoryInfoWrapper.java">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BankAccountNo" type="xs:string"/>
+          <xsd:element name="BankAccountType" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="BankBranchNo" type="xs:string"/>
+          <xsd:element minOccurs="0" name="BankCode" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CreditCardExpirationDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="CreditCardNo" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CreditCardType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="IssueDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="PaymentMeansOwnerDetails" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PaymentMethod" type="xs:string"/>
+          <xsd:element name="PaymentType" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="Pin" type="xs:string"/>
+          <xsd:element name="RecurringAmount" type="xs:double"/>
+          <xsd:element name="RecurringFrequency" type="xs:byte"/>
+          <xsd:element name="RecurringFrequencyValue" type="xs:short"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PayChannelStatusInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="OpenDate" type="xs:dateTime"/>
+          <xsd:element name="PayChannelStatus" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="StatusDate" type="xs:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetUnbilledChargeByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetUnbilledChargeByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetUnbilledChargeByMsisdnResult" type="tns:GetUnbilledChargeByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetUnbilledChargeByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PIListInfo" type="tns:PIListInfo"/>
+          <xsd:element minOccurs="0" name="DocInfo" type="tns:DocInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PIListInfo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="PerformanceIndicatorInfo" type="tns:PerformanceIndicatorInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PerformanceIndicatorInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PerformanceIndicatorIdInfo" type="tns:PerformanceIndicatorIdInfo"/>
+          <xsd:element minOccurs="0" name="PIType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="StartDate" type="xs:dateTime"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="AttributeList" type="tns:AttributeInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PerformanceIndicatorIdInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AgreementIdInfo" type="tns:AgreementIdInfo"/>
+          <xsd:element minOccurs="0" name="CycleInfo" type="tns:CycleInfo"/>
+          <xsd:element minOccurs="0" name="FlexibleCycleInfo" type="tns:FlexibleCycleInfo"/>
+          <xsd:element name="OfferInstance" type="xs:int"/>
+          <xsd:element name="PartitionId" type="xs:short"/>
+          <xsd:element name="PerformanceIndicatorId" type="xs:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgreementIdInfo">
+        <xsd:sequence>
+          <xsd:element name="AgreementId" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CycleInfo">
+        <xsd:sequence>
+          <xsd:element name="Code" type="xs:short"/>
+          <xsd:element name="Month" type="xs:short"/>
+          <xsd:element name="Year" type="xs:short"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FlexibleCycleInfo">
+        <xsd:sequence>
+          <xsd:element name="CycleCode" type="xs:short"/>
+          <xsd:element name="CycleInstance" type="xs:short"/>
+          <xsd:element name="CycleYear" type="xs:short"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AttributeInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AttributeName" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AttributeValue" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DocInfo">
+        <xsd:sequence>
+          <xsd:element name="DocId" type="xs:long"/>
+          <xsd:element minOccurs="0" name="DocType" type="xs:string"/>
+          <xsd:element name="DocStatus" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="BillDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="CycleControlInfo" type="tns:CycleControlInfo"/>
+          <xsd:element minOccurs="0" name="PeriodCoverageStartDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="PeriodCoverageEndDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="ProductionType" type="xs:string"/>
+          <xsd:element name="AccountNo" type="xs:long"/>
+          <xsd:element name="CustomerNo" type="xs:long"/>
+          <xsd:element name="BaNo" type="xs:long"/>
+          <xsd:element minOccurs="0" name="DocumentFormat" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PrintingCategory" type="xs:string"/>
+          <xsd:element name="DocProduceInd" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="AmountCurrency" type="xs:string"/>
+          <xsd:element minOccurs="0" name="DueDate" type="xs:dateTime"/>
+          <xsd:element name="TotalAmount" type="xs:double"/>
+          <xsd:element name="InvoiceAmount" type="xs:double"/>
+          <xsd:element name="InvoiceTaxAmount" type="xs:double"/>
+          <xsd:element name="InvoiceNetAmount" type="xs:double"/>
+          <xsd:element minOccurs="0" name="LegalInvoiceNo" type="xs:string"/>
+          <xsd:element name="BillFrequency" type="xs:short"/>
+          <xsd:element name="RebillActivity" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="DocDemandType" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CycleControlInfo">
+        <xsd:sequence>
+          <xsd:element name="CycleNo" type="xs:int"/>
+          <xsd:element name="CycleCode" type="xs:short"/>
+          <xsd:element name="CycleYear" type="xs:short"/>
+          <xsd:element name="CycleInstance" type="xs:short"/>
+          <xsd:element minOccurs="0" name="StartDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="EndDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="RunDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="Status" type="xs:string"/>
+          <xsd:element name="CycleSeqRun" type="xs:int"/>
+          <xsd:element name="PeriodKey" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPerformanceIndicatorsByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ExternalStructure">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPerformanceIndicatorsByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetPerformanceIndicatorsByMsisdnResult" type="tns:GetPerformanceIndicatorsByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPerformanceIndicatorsByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PIListInfo" type="tns:PIListInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetLastPaymentByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetLastPaymentByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetLastPaymentResult" type="tns:GetLastPaymentByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetLastPaymentByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LastPaymentDt" type="tns:LastPaymentDt"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LastPaymentDt">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Amount" type="xs:double"/>
+          <xsd:element minOccurs="0" name="CreditId" type="xs:long"/>
+          <xsd:element minOccurs="0" name="PaymentDate" type="xs:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetOutstandingBalanceByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetOutstandingBalanceByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetOutstandingBalanceByMsisdnResult" type="tns:OutstandingBalanceDt"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OutstandingBalanceDt">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AccountBalanceDt" type="tns:AccountBalanceDt"/>
+          <xsd:element minOccurs="0" name="LastPaymentDt" type="tns:LastPaymentDt"/>
+          <xsd:element minOccurs="0" name="PayChannelHeader" type="tns:PayChannelHeader"/>
+          <xsd:element minOccurs="0" name="CustomerCyclesInfo" type="tns:CustomerCyclesInfo"/>
+          <xsd:element minOccurs="0" name="DocInfo" type="tns:DocInfo"/>
+          <xsd:element minOccurs="0" name="OverDueBalance" type="xs:double"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerCyclesInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CycleCodeInfo" type="tns:CycleCodeInfo"/>
+          <xsd:element minOccurs="0" name="CustomerIdInfo" type="tns:Bl3gCustomerIdInfo"/>
+          <xsd:element name="CycleMonth" type="xs:short"/>
+          <xsd:element name="CycleYear" type="xs:short"/>
+          <xsd:element name="CycleInstance" type="xs:short"/>
+          <xsd:element name="CycleSeqNo" type="xs:int"/>
+          <xsd:element minOccurs="0" name="StartDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="EndDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="Status" type="xs:string"/>
+          <xsd:element name="CustomerPartitionId" type="xs:short"/>
+          <xsd:element minOccurs="0" name="RunDate" type="xs:dateTime"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CycleCodeInfo">
+        <xsd:sequence>
+          <xsd:element name="CycleCode" type="xs:short"/>
+          <xsd:element name="CycleCloseDay" type="xs:short"/>
+          <xsd:element name="CycleBillDay" type="xs:short"/>
+          <xsd:element minOccurs="0" name="CycleDesc" type="xs:string"/>
+          <xsd:element name="CycleFrequency" type="xs:byte"/>
+          <xsd:element name="CycleFrequencyMultiplier" type="xs:short"/>
+          <xsd:element minOccurs="0" name="BillingReference" type="xs:dateTime"/>
+          <xsd:element name="CyclePopulationCode" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="CyclePopulationDesc" type="xs:string"/>
+          <xsd:element name="CycleBusinessEntity" type="xs:int"/>
+          <xsd:element name="BillPrdUpLimit" type="xs:short"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bl3gCustomerIdInfo">
+        <xsd:sequence>
+          <xsd:element name="CustomerNo" type="xs:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RetrieveBillingStatement">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="billId" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="convertible" type="xs:boolean"/>
+          <xsd:element name="fullBill" type="xs:boolean"/>
+          <xsd:element name="Immediate" type="xs:boolean"/>
+          <xsd:element name="pageSize" nillable="true" type="xs:int"/>
+          <xsd:element name="pageNumber" nillable="true" type="xs:int"/>
+          <xsd:element name="numberOfRows" nillable="true" type="xs:int"/>
+          <xsd:element minOccurs="0" name="fromDate" nillable="true" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="toDate" nillable="true" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="absolutePath" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Filename" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RetrieveBillingStatementResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="RetrieveBillingStatementResult" type="tns:RetrieveBillingStatementResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RetrieveBillingStatementResult">
+        <xsd:sequence>
+          <xsd:element name="operationStatus" type="xs:int"/>
+          <xsd:element name="ReprintResponse" type="xs:int"/>
+          <xsd:element name="ErrorCode" nillable="true" type="xs:int"/>
+          <xsd:element minOccurs="0" name="errorMsg" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="FileBytes" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:base64Binary">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ResultNamespace" nillable="true">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPaymentChannelHeaderByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPaymentChannelHeaderByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetPaymentChannelHeaderByMsisdnResult" type="tns:GetPaymentChannelHeaderByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetPaymentChannelHeaderByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PayChannelHeader" type="tns:PayChannelHeader"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberDistributionByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberDistributionByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetSubscriberDistributionByMsisdnResult" type="tns:GetSubscriberDistributionByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberDistributionByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AgreementDistributionInfo" type="tns:AgreementDistributionInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AgreementDistributionInfo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ChargeDistributionDetailsInfoList" type="tns:ChargeDistributionDetailsInfo"/>
+          <xsd:element minOccurs="0" name="DefaultOcPcnInfo" type="tns:PayChannelIdInfo"/>
+          <xsd:element minOccurs="0" name="DefaultRcPcnInfo" type="tns:PayChannelIdInfo"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="EventDistributionDetailsInfoList" type="tns:EventDistributionDetailsInfo"/>
+          <xsd:element minOccurs="0" name="PrimaryPcnInfo" type="tns:PayChannelIdInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ChargeDistributionDetailsInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ChargeSplitType" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EventDistributionDetailsInfo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="EligibleBaseResource" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EventGroupItem" type="xs:string"/>
+          <xsd:element name="IsDistributable" type="xs:byte"/>
+          <xsd:element name="IsPrimary" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="PaymentCategory" type="xs:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ResourceNames" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreateCreditForLoyaltyRebate">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Amount" type="xs:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreateCreditForLoyaltyRebateResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CreateCreditForLoyaltyRebate" type="tns:CreateCreditForLoyaltyRebateResultResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreateCreditForLoyaltyRebateResultResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CreditDetailsScreenDt" type="tns:CreditDetailsScreenDt"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditDetailsScreenDt">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CreditReason" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CreditDescription" type="xs:string"/>
+          <xsd:element name="Amount" type="xs:double"/>
+          <xsd:element name="InvoiceId" type="xs:long"/>
+          <xsd:element minOccurs="0" name="CreditNoteNo" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CmBillingArrangementId" type="xs:string"/>
+          <xsd:element name="BillingArrangementId" type="xs:long"/>
+          <xsd:element minOccurs="0" name="CreditTypeOption" type="xs:string"/>
+          <xsd:element minOccurs="0" name="MemoText" type="xs:string"/>
+          <xsd:element minOccurs="0" name="BillingInvoiceNumber" type="xs:string"/>
+          <xsd:element name="CreditId" type="xs:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PrimaryResourceType">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:maxLength value="255"/>
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSubscriberByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetSubscriberByMsisdnResult" type="tns:QueryProductResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QueryProductResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SubscriberSearchResultInfo" type="tns:SubscriberSearchResultInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SubscriberSearchResultInfo">
+        <xsd:sequence>
+          <xsd:element name="CustomerNo" type="xs:int"/>
+          <xsd:element name="CustomerType" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="NameLine1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="NameLine2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine3" type="xs:string"/>
+          <xsd:element name="LinkType" type="xs:byte"/>
+          <xsd:element name="BusinessEntityId" type="xs:int"/>
+          <xsd:element name="SubscrNumber" type="xs:int"/>
+          <xsd:element name="SubStatus" type="xs:byte"/>
+          <xsd:element minOccurs="0" name="SubStatusDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="SubscriberType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ResourceType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ResourceValue" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PricePlan" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ResourceEffectiveDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="ResourceExpirationDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="PrimaryResourceType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PrimaryResourceValue" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSpendingLimitByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSpendingLimitByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetSpendingLimitByMsisdnResult" type="tns:GetSpendingLimitByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSpendingLimitByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PIListInfo" type="tns:PIListInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SendIVRReconnectionRequest">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="PaymentFacility">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="PaymentReference">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="DateOfPayment">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="AmountPaid">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:double">
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SendIVRReconnectionRequestResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SendIVRReconnectionRequestResult" type="tns:SendIVRReconnectionRequestResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SendIVRReconnectionRequestResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="MSISDN" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AccountStatus" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CaseReferenceID" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillCycleDetailsByMsisdn">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PrimaryResourceType">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:maxLength value="255"/>
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillCycleDetailsByMsisdnResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetBillCycleDetailsByMsisdnResult" type="tns:GetBillCycleDetailsByMsisdnResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillCycleDetailsByMsisdnResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CustomerCyclesInfo" type="tns:CustomerCyclesInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillingList">
+        <xsd:sequence>
+          <xsd:element name="MSISDN">
+            <xsd:simpleType>
+              <xsd:restriction base="xs:string">
+                <xsd:maxLength value="10"/>
+                <xsd:minLength value="1"/>
+                <xsd:whiteSpace value="collapse"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="PageSize" type="xs:int"/>
+          <xsd:element name="PageNumber" type="xs:int"/>
+          <xsd:element minOccurs="0" name="FromDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="ToDate" type="xs:dateTime"/>
+          <xsd:element minOccurs="0" name="NumRows" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillingListResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="GetBillingListResult" type="tns:GetBillingListResult"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetBillingListResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DocListInfo" type="tns:DocListInfo"/>
+          <xsd:element minOccurs="0" name="ResultNameSpace" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DocListInfo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="DocList" type="tns:DocInfo"/>
+          <xsd:element minOccurs="0" name="PaginationInfo" type="tns:PaginationInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PaginationInfo">
+        <xsd:sequence>
+          <xsd:element name="PageSize" type="xs:int"/>
+          <xsd:element name="PageNumber" type="xs:int"/>
+          <xsd:element name="NumberOfRows" nillable="true" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetAccountBalanceByMsisdn" nillable="true" type="tns:getAccountBalanceByMsisdn"/>
+      <xsd:element name="GetSubscriberByAccountID" nillable="true" type="tns:GetSubscriberByAccountID"/>
+      <xsd:element name="GetAllSubscribersPerCustomer" nillable="true" type="tns:GetAllSubscribersPerCustomer"/>
+      <xsd:element name="GetUnbilledChargeByMsisdn" nillable="true" type="tns:GetUnbilledChargeByMsisdn"/>
+      <xsd:element name="GetPerformanceIndicatorsByMsisdn" nillable="true" type="tns:GetPerformanceIndicatorsByMsisdn"/>
+      <xsd:element name="GetLastPaymentByMsisdn" nillable="true" type="tns:GetLastPaymentByMsisdn"/>
+      <xsd:element name="GetOutstandingBalanceByMsisdn" nillable="true" type="tns:GetOutstandingBalanceByMsisdn"/>
+      <xsd:element name="RetrieveBillingStatement" nillable="true" type="tns:RetrieveBillingStatement"/>
+      <xsd:element name="GetPaymentChannelHeaderByMsisdn" nillable="true" type="tns:GetPaymentChannelHeaderByMsisdn"/>
+      <xsd:element name="GetSubscriberDistributionByMsisdn" nillable="true" type="tns:GetSubscriberDistributionByMsisdn"/>
+      <xsd:element name="CreateCreditForLoyaltyRebate" nillable="true" type="tns:CreateCreditForLoyaltyRebate"/>
+      <xsd:element name="GetSubscriberByMsisdn" nillable="true" type="tns:GetSubscriberByMsisdn"/>
+      <xsd:element name="GetSpendingLimitByMsisdn" nillable="true" type="tns:GetSpendingLimitByMsisdn"/>
+      <xsd:element name="SendIVRReconnectionRequest" nillable="true" type="tns:SendIVRReconnectionRequest"/>
+      <xsd:element name="GetBillCycleDetailsByMsisdn" nillable="true" type="tns:GetBillCycleDetailsByMsisdn"/>
+      <xsd:element name="GetBillingList" nillable="true" type="tns:GetBillingList"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="SendIVRReconnectionRequest">
+    <WL5G3N0:part element="WL5G3N1:SendIVRReconnectionRequest" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SendIVRReconnectionRequestResponse">
+    <WL5G3N0:part element="WL5G3N1:SendIVRReconnectionRequestResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="RetrieveBillingStatement">
+    <WL5G3N0:part element="WL5G3N1:RetrieveBillingStatement" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSpendingLimitByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetSpendingLimitByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetBillCycleDetailsByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetBillCycleDetailsByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetOutstandingBalanceByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetOutstandingBalanceByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPerformanceIndicatorsByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetPerformanceIndicatorsByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetBillingListResponse">
+    <WL5G3N0:part element="WL5G3N1:GetBillingListResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPerformanceIndicatorsByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetPerformanceIndicatorsByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberByAccountID">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberByAccountID" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="RetrieveBillingStatementResponse">
+    <WL5G3N0:part element="WL5G3N1:RetrieveBillingStatementResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetLastPaymentByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetLastPaymentByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSpendingLimitByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetSpendingLimitByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CreateCreditForLoyaltyRebateResponse">
+    <WL5G3N0:part element="WL5G3N1:CreateCreditForLoyaltyRebateResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetBillingList">
+    <WL5G3N0:part element="WL5G3N1:GetBillingList" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetAccountBalanceByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetAccountBalanceByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CreateCreditForLoyaltyRebate">
+    <WL5G3N0:part element="WL5G3N1:CreateCreditForLoyaltyRebate" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetOutstandingBalanceByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetOutstandingBalanceByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPaymentChannelHeaderByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetPaymentChannelHeaderByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetUnbilledChargeByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetUnbilledChargeByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetBillCycleDetailsByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetBillCycleDetailsByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPaymentChannelHeaderByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetPaymentChannelHeaderByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberByAccountIDResponse">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberByAccountIDResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetUnbilledChargeByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetUnbilledChargeByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetAllSubscribersPerCustomer">
+    <WL5G3N0:part element="WL5G3N1:GetAllSubscribersPerCustomer" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetAccountBalanceByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetAccountBalanceByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberDistributionByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberDistributionByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetLastPaymentByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetLastPaymentByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberDistributionByMsisdnResponse">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberDistributionByMsisdnResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetAllSubscribersPerCustomerResponse">
+    <WL5G3N0:part element="WL5G3N1:GetAllSubscribersPerCustomerResponse" name="result"/>
+    <WL5G3N0:part element="WL5G3N2:WarcraftHeader" name="WarcraftHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetSubscriberByMsisdn">
+    <WL5G3N0:part element="WL5G3N1:GetSubscriberByMsisdn" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="BillingProxyService">
+    <WL5G3N0:operation name="GetAccountBalanceByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetAccountBalanceByMsisdn" name="GetAccountBalanceByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetAccountBalanceByMsisdnResponse" name="GetAccountBalanceByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberByAccountID">
+      <WL5G3N0:input message="WL5G3N1:GetSubscriberByAccountID" name="GetSubscriberByAccountID"/>
+      <WL5G3N0:output message="WL5G3N1:GetSubscriberByAccountIDResponse" name="GetSubscriberByAccountIDResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetAllSubscribersPerCustomer">
+      <WL5G3N0:input message="WL5G3N1:GetAllSubscribersPerCustomer" name="GetAllSubscribersPerCustomer"/>
+      <WL5G3N0:output message="WL5G3N1:GetAllSubscribersPerCustomerResponse" name="GetAllSubscribersPerCustomerResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetUnbilledChargeByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetUnbilledChargeByMsisdn" name="GetUnbilledChargeByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetUnbilledChargeByMsisdnResponse" name="GetUnbilledChargeByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPerformanceIndicatorsByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetPerformanceIndicatorsByMsisdn" name="GetPerformanceIndicatorsByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetPerformanceIndicatorsByMsisdnResponse" name="GetPerformanceIndicatorsByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetLastPaymentByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetLastPaymentByMsisdn" name="GetLastPaymentByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetLastPaymentByMsisdnResponse" name="GetLastPaymentByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetOutstandingBalanceByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetOutstandingBalanceByMsisdn" name="GetOutstandingBalanceByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetOutstandingBalanceByMsisdnResponse" name="GetOutstandingBalanceByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="RetrieveBillingStatement">
+      <WL5G3N0:input message="WL5G3N1:RetrieveBillingStatement" name="RetrieveBillingStatement"/>
+      <WL5G3N0:output message="WL5G3N1:RetrieveBillingStatementResponse" name="RetrieveBillingStatementResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPaymentChannelHeaderByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetPaymentChannelHeaderByMsisdn" name="GetPaymentChannelHeaderByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetPaymentChannelHeaderByMsisdnResponse" name="GetPaymentChannelHeaderByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberDistributionByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetSubscriberDistributionByMsisdn" name="GetSubscriberDistributionByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetSubscriberDistributionByMsisdnResponse" name="GetSubscriberDistributionByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CreateCreditForLoyaltyRebate">
+      <WL5G3N0:input message="WL5G3N1:CreateCreditForLoyaltyRebate" name="CreateCreditForLoyaltyRebate"/>
+      <WL5G3N0:output message="WL5G3N1:CreateCreditForLoyaltyRebateResponse" name="CreateCreditForLoyaltyRebateResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetSubscriberByMsisdn" name="GetSubscriberByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetSubscriberByMsisdnResponse" name="GetSubscriberByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSpendingLimitByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetSpendingLimitByMsisdn" name="GetSpendingLimitByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetSpendingLimitByMsisdnResponse" name="GetSpendingLimitByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SendIVRReconnectionRequest">
+      <WL5G3N0:input message="WL5G3N1:SendIVRReconnectionRequest" name="SendIVRReconnectionRequest"/>
+      <WL5G3N0:output message="WL5G3N1:SendIVRReconnectionRequestResponse" name="SendIVRReconnectionRequestResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetBillCycleDetailsByMsisdn">
+      <WL5G3N0:input message="WL5G3N1:GetBillCycleDetailsByMsisdn" name="GetBillCycleDetailsByMsisdn"/>
+      <WL5G3N0:output message="WL5G3N1:GetBillCycleDetailsByMsisdnResponse" name="GetBillCycleDetailsByMsisdnResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetBillingList">
+      <WL5G3N0:input message="WL5G3N1:GetBillingList" name="GetBillingList"/>
+      <WL5G3N0:output message="WL5G3N1:GetBillingListResponse" name="GetBillingListResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="BillingServiceSoapBinding" type="WL5G3N1:BillingProxyService">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="GetAccountBalanceByMsisdn">
+      <WL5G3N3:operation soapAction="GetAccountBalanceByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetAccountBalanceByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetAccountBalanceByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetAccountBalanceByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetAllSubscribersPerCustomer">
+      <WL5G3N3:operation soapAction="GetAllSubscribersPerCustomer" style="document"/>
+      <WL5G3N0:input name="GetAllSubscribersPerCustomer">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetAllSubscribersPerCustomerResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetAllSubscribersPerCustomerResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberByAccountID">
+      <WL5G3N3:operation soapAction="GetSubscriberByAccountID" style="document"/>
+      <WL5G3N0:input name="GetSubscriberByAccountID">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetSubscriberByAccountIDResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetSubscriberByAccountIDResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPerformanceIndicatorsByMsisdn">
+      <WL5G3N3:operation soapAction="GetPerformanceIndicatorsByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetPerformanceIndicatorsByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetPerformanceIndicatorsByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetPerformanceIndicatorsByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetUnbilledChargeByMsisdn">
+      <WL5G3N3:operation soapAction="GetUnbilledChargeByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetUnbilledChargeByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetUnbilledChargeByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetUnbilledChargeByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetLastPaymentByMsisdn">
+      <WL5G3N3:operation soapAction="GetLastPaymentByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetLastPaymentByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetLastPaymentByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetLastPaymentByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetOutstandingBalanceByMsisdn">
+      <WL5G3N3:operation soapAction="GetOutstandingBalanceByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetOutstandingBalanceByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetOutstandingBalanceByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetOutstandingBalanceByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPaymentChannelHeaderByMsisdn">
+      <WL5G3N3:operation soapAction="GetPaymentChannelHeaderByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetPaymentChannelHeaderByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetPaymentChannelHeaderByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetPaymentChannelHeaderByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="RetrieveBillingStatement">
+      <WL5G3N3:operation soapAction="RetrieveBillingStatement" style="document"/>
+      <WL5G3N0:input name="RetrieveBillingStatement">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="RetrieveBillingStatementResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:RetrieveBillingStatementResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CreateCreditForLoyaltyRebate">
+      <WL5G3N3:operation soapAction="CreateCreditForLoyaltyRebate" style="document"/>
+      <WL5G3N0:input name="CreateCreditForLoyaltyRebate">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="CreateCreditForLoyaltyRebateResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:CreateCreditForLoyaltyRebateResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberDistributionByMsisdn">
+      <WL5G3N3:operation soapAction="GetSubscriberDistributionByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetSubscriberDistributionByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetSubscriberDistributionByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetSubscriberDistributionByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSubscriberByMsisdn">
+      <WL5G3N3:operation soapAction="GetSubscriberByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetSubscriberByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetSubscriberByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetSubscriberByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetSpendingLimitByMsisdn">
+      <WL5G3N3:operation soapAction="GetSpendingLimitByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetSpendingLimitByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetSpendingLimitByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetSpendingLimitByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SendIVRReconnectionRequest">
+      <WL5G3N3:operation soapAction="SendIVRReconnectionRequest" style="document"/>
+      <WL5G3N0:input name="SendIVRReconnectionRequest">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="SendIVRReconnectionRequestResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:SendIVRReconnectionRequestResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetBillCycleDetailsByMsisdn">
+      <WL5G3N3:operation soapAction="GetBillCycleDetailsByMsisdn" style="document"/>
+      <WL5G3N0:input name="GetBillCycleDetailsByMsisdn">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetBillCycleDetailsByMsisdnResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetBillCycleDetailsByMsisdnResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetBillingList">
+      <WL5G3N3:operation soapAction="GetBillingList" style="document"/>
+      <WL5G3N0:input name="GetBillingList">
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="GetBillingListResponse">
+        <WL5G3N3:body parts="result" use="literal"/>
+        <WL5G3N3:header message="WL5G3N1:GetBillingListResponse" part="WarcraftHeader" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="BillingService">
+    <WL5G3N0:port binding="WL5G3N1:BillingServiceSoapBinding" name="BillingServicePort">
+      <WL5G3N3:address location="http://10.225.10.4/billing"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

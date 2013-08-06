@@ -3,11 +3,12 @@
   <services>
   </services>
   <clients>
-    <client name="BillingProxyService">
-      <wsdl-url>file:/C:/Users/Mark%20Chavez/Desktop/BillingProxyService.wsdl</wsdl-url>
-      <local-wsdl-file>BillingProxyService.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">com.egg.mybill.services.proxy.wsdl</package-name>
+    <client name="updated_billing">
+      <wsdl-url>file:/C:/Users/Mark%20Chavez/Desktop/updated_billing.wsdl</wsdl-url>
+      <local-wsdl-file>updated_billing.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">com.egg.mybill.services.proxy.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
+      <use-dispatch>true</use-dispatch>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>
@@ -19,7 +20,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://10.225.10.4:8211/billing?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://10.225.10.4:8211/billing</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -31,7 +32,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>com.egg.mybill.services.proxy.wsdl</wsimport-option-value>
+          <wsimport-option-value>com.egg.mybill.services.proxy.soap</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>target</wsimport-option-name>

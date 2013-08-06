@@ -28,21 +28,21 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-BillingProxyService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/BillingProxyService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BillingProxyService" destdir="${build.generated.dir}/jax-wsCache/BillingProxyService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BillingProxyService/wsdl/BillingProxyService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://10.225.10.4:8211/billing?wsdl" xnocompile="true" xendorsed="true" package="com.egg.mybill.services.proxy.wsdl" target="2.1">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BillingProxyService/wsdl/BillingProxyService.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/BillingProxyService"/>
+    <target name="wsimport-client-updated_billing" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/updated_billing"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/updated_billing" destdir="${build.generated.dir}/jax-wsCache/updated_billing" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/updated_billing/wsdl/updated_billing.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://10.225.10.4:8211/billing" xnocompile="true" xendorsed="true" package="com.egg.mybill.services.proxy.soap" target="2.1">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/updated_billing/wsdl/updated_billing.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/updated_billing"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/BillingProxyService">
+            <fileset dir="${build.generated.dir}/jax-wsCache/updated_billing">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-BillingProxyService" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/egg/mybill/services/proxy/wsdl"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/BillingProxyService"/>
+    <target name="wsimport-client-clean-updated_billing" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/egg/mybill/services/proxy/soap"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/updated_billing"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-BillingProxyService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-updated_billing"/>
 </project>

@@ -5,5 +5,5 @@
  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
  >
-    <import location="BillingProxyService.xml" namespace="http://www.globe.com/warcraft/wsdl/billing/"/>
+    <import location="updated_billing.xml" namespace="http://www.globe.com/warcraft/wsdl/billing/"/>
 </definitions>
