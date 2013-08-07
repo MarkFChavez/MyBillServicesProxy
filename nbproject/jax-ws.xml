@@ -8,7 +8,6 @@
       <local-wsdl-file>updated_billing.wsdl</local-wsdl-file>
       <package-name forceReplace="true">com.egg.mybill.services.proxy.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
-      <use-dispatch>true</use-dispatch>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>

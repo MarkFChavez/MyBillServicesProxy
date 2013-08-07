@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/C:/Users/Mark%20Chavez/Desktop/BillingProxyService.wsdl" uri="wsdl/BillingProxyService.wsdl"/>
-    <system systemId="file:/C:/Users/Mark%20Chavez/Documents/NetBeansProjects/MyBillServicesProxy/web/WEB-INF/wsdl/BillingProxyService.wsdl" uri="wsdl/BillingProxyService.wsdl"/>
     <system systemId="file:/C:/Users/Mark%20Chavez/Desktop/updated_billing.wsdl" uri="wsdl/updated_billing.wsdl"/>
 </catalog>

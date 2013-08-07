@@ -23,6 +23,7 @@ import javax.xml.ws.Dispatch;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.ws.Service;
 import java.io.StringReader;
+import java.util.Calendar;
 
 /**
  *
@@ -117,40 +118,50 @@ public class MyBillServicesProxyImpl implements MyBillServicesProxy {
             
             com.egg.mybill.services.proxy.soap.BillingService service = new com.egg.mybill.services.proxy.soap.BillingService();
             com.egg.mybill.services.proxy.soap.BillingProxyService port = service.getBillingServicePort();
-        
+            
             BindingProvider bp = (BindingProvider) port;
             bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, PropertiesUtil.getProperty("url.endpoint"));
-            
+           
             com.egg.mybill.services.proxy.soap.GetBillingList parameters = new com.egg.mybill.services.proxy.soap.GetBillingList();
             javax.xml.ws.Holder<com.egg.mybill.services.proxy.soap.GetBillingListResponse> result = new javax.xml.ws.Holder<com.egg.mybill.services.proxy.soap.GetBillingListResponse>();
             javax.xml.ws.Holder<com.egg.mybill.services.proxy.soap.WarcraftHeader> warcraftHeader = new javax.xml.ws.Holder<com.egg.mybill.services.proxy.soap.WarcraftHeader>();
             
+            logger.debug("WSDL LOCATION >>> " + service.getWSDLDocumentLocation());
+            
 //            ObjectFactory objectFactory = new ObjectFactory();
-//            
-//            GregorianCalendar c1 = new GregorianCalendar();
-//            c1.setTime(new Date(2013, 0, 1));
-//            
-//            GregorianCalendar c2 = new GregorianCalendar();
-//            c2.setTime(new Date(2013, 11, 25));
-//            
-//            XMLGregorianCalendar gregCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c1);
-//            XMLGregorianCalendar gregCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c2);
+            
+            GregorianCalendar c1 = new GregorianCalendar();
+            Calendar cal1 = Calendar.getInstance();
+            cal1.set(2013, 0, 1, 14, 16, 46);
+            c1.setTime(cal1.getTime());
+
+            GregorianCalendar c2 = new GregorianCalendar();
+            Calendar cal2 = Calendar.getInstance();
+            cal2.set(2014, 0, 1, 14, 16, 46);
+            c2.setTime(cal2.getTime());
+
+            XMLGregorianCalendar gregCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c1);
+            XMLGregorianCalendar gregCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c2);
             
             //set parameters here...
             parameters.setMSISDN(msisdn);
             parameters.setPageSize(pageSize);
             parameters.setPageNumber(pageNumber);
-            parameters.setFromDate(null);
-            parameters.setToDate(null);
+            parameters.setFromDate(gregCalendar1);
+            parameters.setToDate(gregCalendar2);
             parameters.setNumRows(numRows);
             
             logger.debug("MSISDN >>> " + parameters.getMSISDN());
             logger.debug("PAGE SIZE >>> " + parameters.getPageSize());
             logger.debug("PAGE NUMBER >>> " + parameters.getPageNumber());
+            logger.debug("FROM DATE >>> " + parameters.getFromDate());
+            logger.debug("TO DATE >>> " + parameters.getToDate());
             logger.debug("NUM ROWS >>> " + parameters.getNumRows());
             
             port.getBillingList(parameters, result, warcraftHeader);
             
+            logger.debug("WarcraftHeader >>> " + warcraftHeader.value);
+           
             //response
             com.egg.mybill.services.proxy.soap.GetBillingListResponse callResponse = result.value;
             com.egg.mybill.services.proxy.soap.GetBillingListResult callResult = callResponse.getGetBillingListResult();
@@ -160,7 +171,7 @@ public class MyBillServicesProxyImpl implements MyBillServicesProxy {
             if(callResult != null) {
                 DocListInfo docInfo = callResult.getDocListInfo();
   
-                response.setObj(gson.toJson(callResult));
+                response.setObj(gson.toJson(callResult) + " - " + ((docInfo != null) ? "DOCINFO IS NOT NULL" : "DOCINFO IS NULL"));
                 response.setDescription("SUCCESS");
             } else {
                 response.setDescription("ERROR");
