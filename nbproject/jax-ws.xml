@@ -3,9 +3,9 @@
   <services>
   </services>
   <clients>
-    <client name="updated_billing">
-      <wsdl-url>file:/C:/Users/Mark%20Chavez/Desktop/updated_billing.wsdl</wsdl-url>
-      <local-wsdl-file>updated_billing.wsdl</local-wsdl-file>
+    <client name="billing_0807">
+      <wsdl-url>file:/C:/Users/Mark%20Chavez/Desktop/billing_0807.wsdl</wsdl-url>
+      <local-wsdl-file>billing_0807.wsdl</local-wsdl-file>
       <package-name forceReplace="true">com.egg.mybill.services.proxy.soap</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>

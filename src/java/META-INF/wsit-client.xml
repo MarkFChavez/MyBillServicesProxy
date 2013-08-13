@@ -6,4 +6,5 @@
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
  >
     <import location="updated_billing.xml" namespace="http://www.globe.com/warcraft/wsdl/billing/"/>
+    <import location="billing_0807.xml" namespace="http://www.globe.com/warcraft/wsdl/billing/"/>
 </definitions>

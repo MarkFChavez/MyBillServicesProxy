@@ -4,11 +4,11 @@
  */
 package com.egg.mybill.services.proxy.remoting.impl;
 
+import com.egg.mybill.services.proxy.RBSResponse;
 import com.egg.mybill.services.proxy.ServiceResponse;
 import com.egg.mybill.services.proxy.remoting.MyBillServicesProxy;
 import com.egg.mybill.services.proxy.util.PropertiesUtil;
 import com.egg.mybill.services.proxy.soap.DocInfo;
-import com.egg.mybill.services.proxy.soap.DocListInfo;
 import com.egg.mybill.services.proxy.soap.ObjectFactory;
 import com.google.gson.Gson;
 import java.util.Date;
@@ -17,13 +17,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.BindingProvider;
 import org.apache.log4j.Logger;
-import javax.xml.namespace.QName;
-import javax.xml.transform.Source;
-import javax.xml.ws.Dispatch;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.ws.Service;
-import java.io.StringReader;
-import java.util.Calendar;
+import java.util.List;
 
 /**
  *
@@ -130,48 +124,48 @@ public class MyBillServicesProxyImpl implements MyBillServicesProxy {
             
 //            ObjectFactory objectFactory = new ObjectFactory();
             
-            GregorianCalendar c1 = new GregorianCalendar();
-            Calendar cal1 = Calendar.getInstance();
-            cal1.set(2013, 0, 1, 14, 16, 46);
-            c1.setTime(cal1.getTime());
+//            GregorianCalendar c1 = new GregorianCalendar();
+//            Calendar cal1 = Calendar.getInstance();
+//            cal1.set(2013, 0, 1, 14, 16, 46);
+//            c1.setTime(cal1.getTime());
+//
+//            GregorianCalendar c2 = new GregorianCalendar();
+//            Calendar cal2 = Calendar.getInstance();
+//            cal2.set(2014, 0, 1, 14, 16, 46);
+//            c2.setTime(cal2.getTime());
 
-            GregorianCalendar c2 = new GregorianCalendar();
-            Calendar cal2 = Calendar.getInstance();
-            cal2.set(2014, 0, 1, 14, 16, 46);
-            c2.setTime(cal2.getTime());
-
-            XMLGregorianCalendar gregCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c1);
-            XMLGregorianCalendar gregCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c2);
+//            XMLGregorianCalendar gregCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c1);
+//            XMLGregorianCalendar gregCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c2);
             
             //set parameters here...
             parameters.setMSISDN(msisdn);
             parameters.setPageSize(pageSize);
             parameters.setPageNumber(pageNumber);
-            parameters.setFromDate(gregCalendar1);
-            parameters.setToDate(gregCalendar2);
+//            parameters.setFromDate(gregCaleendar1);
+//            parameters.setToDate(gregCalendar2);
             parameters.setNumRows(numRows);
             
             logger.debug("MSISDN >>> " + parameters.getMSISDN());
             logger.debug("PAGE SIZE >>> " + parameters.getPageSize());
             logger.debug("PAGE NUMBER >>> " + parameters.getPageNumber());
-            logger.debug("FROM DATE >>> " + parameters.getFromDate());
-            logger.debug("TO DATE >>> " + parameters.getToDate());
+//            logger.debug("FROM DATE >>> " + parameters.getFromDate());
+//            logger.debug("TO DATE >>> " + parameters.getToDate());
             logger.debug("NUM ROWS >>> " + parameters.getNumRows());
             
             port.getBillingList(parameters, result, warcraftHeader);
             
-            logger.debug("WarcraftHeader >>> " + warcraftHeader.value);
-           
             //response
             com.egg.mybill.services.proxy.soap.GetBillingListResponse callResponse = result.value;
             com.egg.mybill.services.proxy.soap.GetBillingListResult callResult = callResponse.getGetBillingListResult();
             
-            logger.debug("Call Result >>> " + gson.toJson(callResult));
+            logger.debug("WARCRAFT HEADER >>> " + warcraftHeader.value);
+            logger.debug("CALL RESPONSE >>> " + gson.toJson(callResponse));
+            logger.debug("CALL RESULT >>> " + gson.toJson(callResult));
             
             if(callResult != null) {
-                DocListInfo docInfo = callResult.getDocListInfo();
+                List<DocInfo> docInfo = callResult.getDocList();
   
-                response.setObj(gson.toJson(callResult) + " - " + ((docInfo != null) ? "DOCINFO IS NOT NULL" : "DOCINFO IS NULL"));
+                response.setObj(gson.toJson(docInfo));
                 response.setDescription("SUCCESS");
             } else {
                 response.setDescription("ERROR");
@@ -238,7 +232,25 @@ public class MyBillServicesProxyImpl implements MyBillServicesProxy {
             logger.debug("CALL RESULT >>> " + callResult);
             
             if(callResult != null) {
-                response.setObj(gson.toJson(callResult));
+                int operationStatus = callResult.getOperationStatus();
+                int reprintResponse = callResult.getReprintResponse();
+                String errorMsg = (callResult.getErrorMsg() != null) ? callResult.getErrorMsg().getValue() : null;
+                
+                RBSResponse res = new RBSResponse();
+                
+                if(errorMsg != null) {
+                    res.setErrorMsg(errorMsg);
+                    res.setOperationStatus(operationStatus);
+                    res.setReprintResponse(reprintResponse);
+                    
+                    response.setObj(gson.toJson(res));
+                } else {
+                    res.setOperationStatus(operationStatus);
+                    res.setReprintResponse(reprintResponse);
+                    
+                    response.setObj(gson.toJson(res));
+                }
+                
                 response.setDescription("SUCCESS");
             } else {
                 response.setDescription("ERROR");

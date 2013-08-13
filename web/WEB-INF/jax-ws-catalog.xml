@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/C:/Users/Mark%20Chavez/Desktop/updated_billing.wsdl" uri="wsdl/updated_billing.wsdl"/>
+    <system systemId="file:/C:/Users/Mark%20Chavez/Desktop/billing_0807.wsdl" uri="wsdl/billing_0807.wsdl"/>
 </catalog>
